@@ -94,7 +94,6 @@ function init() {
     map = new OpenLayers.Map(null, mapOptions);
 	
     map.addControl(loadingpanel);
-    map.addControl(new OpenLayers.Control.LayerSwitcher());
 
     var check_forest_info = function(layer,ll) {
       lon = ll.lon;
@@ -234,7 +233,7 @@ function init() {
     featureInfo.activate();
     var toolbarItems = [],
     action, actions = {};
-    var toggleGroup = "ToogleGroup";
+    var toggleGroup = "ToggleToolbar";
     OpenLayers.Control.Measure.prototype.geodesic = true;
 
     function check(btn) {
@@ -244,19 +243,21 @@ function init() {
     };
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Auf Verbandsgebiet zoomen",
+        tooltip: "Zoom to max",
         icon: 'images/arrow_out.png',
         control: new OpenLayers.Control.ZoomToMaxExtent(),
         map: map
     });
     actions["max_extent"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "schwenken", 
+        tooltip: "Pan", 
         icon: 'images/hand.png',
         control: new OpenLayers.Control.DragPan({
             isDefault: true,
@@ -266,34 +267,40 @@ function init() {
     });
     actions["Pan"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "hereinzoomen",
+        tooltip: "Zoom In",
         icon: 'images/zoom_in.png',
         control: new OpenLayers.Control.ZoomIn(),
         map: map
     });
     actions["Zoom in"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "herauszoomen",
+        tooltip: "Zoom Out",
         icon: 'images/zoom_out.png',
         control: new OpenLayers.Control.ZoomOut(),
         map: map
     });
     actions["Zoom out"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Heranzoomen",
+        tooltip: "Zoom Box",
         enableToggle: true,
         icon: 'images/magnifier_zoom_box.png',
         toggleGroup: toggleGroup,
@@ -304,31 +311,37 @@ function init() {
     });
     actions["Zoom"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     ctrl = new OpenLayers.Control.NavigationHistory();
     map.addControl(ctrl);
+
     action = new GeoExt.Action({
         text: "",
         icon: 'images/arrow_left.png',
         control: ctrl.previous,
         disabled: true,
-        tooltip: "zur&uuml;ck zur vorherigen Ausdehnung"
+        tooltip: "Go Backward"
     });
     actions["previous"] = action;
     toolbarItems.push(action);
+
     action = new GeoExt.Action({
         text: "",
         control: ctrl.next,
         icon: 'images/arrow_right.png',
         disabled: true,
-        tooltip: "vor zur n&auml;chsten Ausdehnung"
+        tooltip: "Go Forward"
     });
     actions["next"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Features selektieren",
+        tooltip: "Select Features",
         enableToggle: true,
         icon: 'images/information.png',
         toggleGroup: toggleGroup,
@@ -337,7 +350,9 @@ function init() {
     });
     actions["Select"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     var sketchSymbolizers = {
         "Point": {
             pointRadius: 4,
@@ -370,14 +385,16 @@ function init() {
     var styleMap = new OpenLayers.StyleMap({
         "default": style
     });
+
     action = new GeoExt.Action({
         text: "",
         icon: 'images/ruler_square.png',
         toggleGroup: toggleGroup,
-        tooltip: "Areal berechnen",
+        enableToggle: true,
+        tooltip: "วัดขนาดพื้นที่",
         control: new OpenLayers.Control.Measure(OpenLayers.Handler.Polygon, {
             displayClass: 'olControlMeasureArea', 
-			clickout: true,
+	    clickout: true,
             persist: false,
             handlerOptions: {
                 layerOptions: {
@@ -387,10 +404,10 @@ function init() {
             eventListeners: {
                 measure: function (evt) {
                     Ext.MessageBox.show({
-                        title: 'Fl&auml;chenberechnung',
+                        title: 'พื้นที่โดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: "Area: " + evt.measure.toFixed(2) + evt.units + "&sup2;"
+                        msg: "Area: " + evt.measure.toFixed(2) + " " + evt.units + "&sup2;"
                     })
                 }
             }
@@ -399,15 +416,17 @@ function init() {
     });
     actions["area"] = action;
     toolbarItems.push(action);
+
     toolbarItems.push(' ', ' ', ' ', ' ');
+
     action = new GeoExt.Action({
         text: "",
+        enableToggle: true,
         toggleGroup: toggleGroup,
-		icon: 'images/ruler.png',
-        tooltip: "Entfernung berechnen",
+	icon: 'images/ruler.png',
+        tooltip: "วัดระยะทาง",
         control: new OpenLayers.Control.Measure(OpenLayers.Handler.Path, {
             persist: false,
-			
             handlerOptions: {
                 layerOptions: {
                     styleMap: styleMap
@@ -416,10 +435,10 @@ function init() {
             eventListeners: {
                 measure: function (evt) {
                     Ext.MessageBox.show({
-                        title: 'Entfernung',
+                        title: 'ระยะทางรวมโดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: "L&auml;nge: " + evt.measure.toFixed(2) + evt.units
+                        msg: "Length: " + evt.measure.toFixed(2) + " " + evt.units
                     })
                 }
             }
@@ -519,7 +538,7 @@ function init() {
             forceFit: true
         },
         store: new GeoExt.data.WMSCapabilitiesStore({
-            url: "/cgi-bin/mapserv?SERVICE=WMS&REQUEST=GetCapabilities&map=/ms603/map/wms-dsi-extra.map",
+            url: "/cgi-bin/mapserv?SERVICE=WMS&REQUEST=GetCapabilities&map=/ms601/map/wms-dsi.map",
             autoLoad: true
         }),
         columns: [{
