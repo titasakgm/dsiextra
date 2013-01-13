@@ -68,7 +68,7 @@ function init() {
           visibility: false
     });
 
-    var layer_tambon = new OpenLayers.Layer.WMS("OVR คำบล", "http://203.151.201.129/cgi-bin/mapserv?", {
+    var layer_tambon = new OpenLayers.Layer.WMS("OVR ตำบล", "http://203.151.201.129/cgi-bin/mapserv?", {
           map: '/ms603/map/wms-dsi.map',
           layers: 'no_04_tambon',
           transparent: true
