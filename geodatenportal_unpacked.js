@@ -736,9 +736,9 @@ var visualConfigs = {
             handler: function () {
                 if (!capabilitieswin) {
                     capabilitieswin = new Ext.Window({
-                        title: "เลือกชั้นข้อมูลที่ต้องการใช้งาน",
+                        title: "เลือกชั้นข้อมูลที่ต้องการใช้งานเพิ่มเติม",
                         layout: 'fit',
-                        width: '600',
+                        width: '300',
                         height: 'auto',
                         border: false,
                         closable: true,
@@ -817,8 +817,8 @@ var visualConfigs = {
                 border: false,
                 closable: true,
                 collapsible: true,
-                x: 450,
-                y: 100,
+                x: 400,
+                y: 110,
                 resizable: true,
                 closeAction: 'hide',
                 plain: true,
@@ -933,15 +933,15 @@ var visualConfigs = {
                 handler: function () {
                     if (!capabilitieswin) {
                         capabilitieswin = new Ext.Window({
-                            title: "เลือกชั้นข้อมูล",
+                            title: "รายละเอียดชั้นข้อมูล",
                             layout: 'fit',
                             width: '600',
                             height: 'auto',
                             border: false,
                             closable: true,
                             collapsible: true,
-                            x: 450,
-                            y: 100,
+                            x: 400,
+                            y: 110,
                             resizable: true,
                             closeAction: 'hide',
                             plain: true,
