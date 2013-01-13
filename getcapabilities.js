@@ -1,7 +1,7 @@
     // create the Data Store
     var store = new Ext.data.Store({
         // load using HTTP
-        url: 'getcapabilities.xml',
+        url: '/cgi-bin/mapserv?SERVICE=WMS&REQUEST=GetCapabilities&map=/ms603/map/wms-dsi-extra.map',
 
         // the return will be XML, so lets set up a reader
         reader: new Ext.data.XmlReader({
