@@ -793,7 +793,7 @@ var visualConfigs = {
             capabilitieswin = new Ext.Window({
                 title: "เลือกชั้นข้อมูลที่ต้องการใช้งานเพิ่มเติม",
                	layout: 'fit',
-                width: '600',
+                width: '300',
                 height: 'auto',
                 border: false,
                 closable: true,
