@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding="ISO-8859-1" standalone="no" ?>
+<WMS_Capabilities version="1.3.0"  xmlns="http://www.opengis.net/wms"   xmlns:sld="http://www.opengis.net/sld"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"   xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd  http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd  http://mapserver.gis.umn.edu/mapserver http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;service=WMS&amp;version=1.3.0&amp;request=GetSchemaExtension">
+
+<!-- MapServer version 6.0.3 OUTPUT=GIF OUTPUT=PNG OUTPUT=JPEG SUPPORTS=PROJ SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=ICONV SUPPORTS=WMS_SERVER SUPPORTS=WFS_SERVER SUPPORTS=GEOS INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE -->
+
+<Service>
+  <Name>WMS</Name>
+  <Title>DSI WMS</Title>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/>
+  <ContactInformation>
+  </ContactInformation>
+  <MaxWidth>2048</MaxWidth>
+  <MaxHeight>2048</MaxHeight>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/png</Format>
+      <Format>image/jpeg</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>image/tiff</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/plain</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+    <sld:DescribeLayer>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:DescribeLayer>
+    <sld:GetLegendGraphic>
+      <Format>image/png</Format>
+      <Format>image/jpeg</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=8bit</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:GetLegendGraphic>
+    <ms:GetStyles>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://203.151.201.129/cgi-bin/mapserv?map=/ms603/map/wms-dsi.map&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </ms:GetStyles>
+  </Request>
+  <Exception>
+    <Format>XML</Format>
+    <Format>INIMAGE</Format>
+    <Format>BLANK</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="1" RemoteWFS="0" InlineFeature="0" RemoteWCS="0"/>
+  <Layers>
+    <Name>Thai</Name>
+    <Title>DSI WMS</Title>
+    <Abstract>Thai</Abstract>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>97</westBoundLongitude>
+        <eastBoundLongitude>105.7</eastBoundLongitude>
+        <southBoundLatitude>5.5</southBoundLatitude>
+        <northBoundLatitude>20.5</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS=""
+                minx="97" miny="5.5" maxx="105.7" maxy="20.5" />
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>npark</Name>
+        <Title>National Park</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-2.5e+07</westBoundLongitude>
+          <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+          <southBoundLatitude>-2.5e+07</southBoundLatitude>
+          <northBoundLatitude>2.5e+07</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rforest</Name>
+        <Title>Reserved Forest</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-2.5e+07</westBoundLongitude>
+          <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+          <southBoundLatitude>-2.5e+07</southBoundLatitude>
+          <northBoundLatitude>2.5e+07</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>uforest</Name>
+        <Title>Use Forest</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-2.5e+07</westBoundLongitude>
+          <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+          <southBoundLatitude>-2.5e+07</southBoundLatitude>
+          <northBoundLatitude>2.5e+07</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>contour</Name>
+        <Title>Contour</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>testtopo</Name>
+        <Title>TestTopo</Title>
+        <CRS>EPSG:24047</CRS>
+        <CRS>EPSG:32647</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>98.2995</westBoundLongitude>
+        <eastBoundLongitude>98.5503</eastBoundLongitude>
+        <southBoundLatitude>9.2496</southBoundLatitude>
+        <northBoundLatitude>9.50041</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:24047"
+                    minx="423123" miny="1.02244e+06" maxx="450615" maxy="1.05013e+06" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>l7018</Name>
+        <Title>WMS L7018</Title>
+        <CRS>EPSG:32647</CRS>
+        <CRS>EPSG:900913</CRS>
+        <!-- WARNING: Optional Ex_GeographicBoundingBox could not be established for this layer.  Consider setting the EXTENT in the LAYER object, or wms_extent metadata. Also check that your data exists in the DATA statement -->
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>province</Name>
+        <Title>Province</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_03_amphoe</Name>
+        <Title>No_03 Amphoe</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_04_tambon</Name>
+        <Title>No_04 Tambon</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_06_muban</Name>
+        <Title>No_06 Muban</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_13_geology</Name>
+        <Title>No_13_geology</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_14_mineral</Name>
+        <Title>No_14_mineral</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>no_22_spk</Name>
+        <Title>No_22_spk</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>mangrove_2530</Name>
+        <Title>Mangrove_2530</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>mangrove_2543</Name>
+        <Title>Mangrove_2543</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>mangrove_2552</Name>
+        <Title>Mangrove_2552</Title>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:900913</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-2.5e+07</westBoundLongitude>
+        <eastBoundLongitude>2.5e+07</eastBoundLongitude>
+        <southBoundLatitude>-2.5e+07</southBoundLatitude>
+        <northBoundLatitude>2.5e+07</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-2.5e+07" miny="-2.5e+07" maxx="2.5e+07" maxy="2.5e+07" />
+    </Layer>
+  </Layers>
+</Capability>
+</WMS_Capabilities>
+

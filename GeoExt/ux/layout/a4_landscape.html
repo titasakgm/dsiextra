@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Print Map</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        #title {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+
+        #map {
+            position: absolute;
+            top: 80px;
+            left: 10px;
+            width: 1080px;
+            height: 660px;
+        }
+
+        #copyright {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+        }
+
+        .olControlPanZoom {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="http://openlayers.org/api/2.8/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map;
+        function init() {
+            map = new OpenLayers.Map('map');
+            window.opener.GeoExt.ux.layout.LayoutPrinter.Apply(window);
+        }
+    </script>
+
+
+
+</head>
+<body onload="init();">
+
+<div id="title"><h1>ZGB Geodatenportal</h1></div>
+<div id="map"></div>
+<div id="copyright">Published under the BSD license</div>
+</body>
+</html>

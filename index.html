@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<html>
+<head>
+<title>DSI Extra</title>
+<style type="text/css" media="screen"></style>
+
+<style>
+.load {
+  position: absolute;
+  left:45%;
+  top:40%;
+  padding:2px;
+  z-index:20001;
+  height:auto;
+  padding:50px;
+  background-color:#F2F2F2;
+  font:bold 13px tahoma,arial,helvetica;
+}
+</style>
+
+</head>
+<body style="background-color:#F2F2F2; padding:20px;"; onload="init();" >
+
+<div id='loadingDiv' class="load">
+<img src='images/extanim32_gray.gif'>&nbsp;&nbsp;<span id="loading-msg" width="200px" background-color:"red">DSI Map Extra</span>
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML ='DSI Map Extra'+'<br>'+'GeoExt.js API loading...';</script>
+</div
+
+<!-- Ext-->
+<script type="text/javascript" src="ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="ext/ext-all.js"></script>
+<!-- <script type="text/javascript" src="../ext/ext-all-debug-w-comments.js"></script> -->
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'DSI Map Extra'+'<br>'+'<br>'+'Ext.js API loading...';</script>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="ext/resources/css/xtheme-gray.css" />
+
+<!-- OpenLayer 2.10 Local-->
+<!--  <script src="http://openlayers.org/api/OpenLayers.js"></script> -->
+<!-- <script src="../openlayers/OpenLayers.js"></script> -->
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML ='DSI Map Extra'+'<br>'+'GeoExt.js API loading...';</script>
+<script src="http://www.openlayers.org/api/2.9.1/OpenLayers.js"></script>
+
+<!-- GeoExt -->
+<script type="text/javascript" src="GeoExt/lib/GeoExt.js"></script>
+<script type="text/javascript">document.getElementById('loading-msg').innerHTML ='DSI Map Extra'+'<br>'+'OpenLayers API loading...';</script>
+<script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBvl0JC02hY7cq2AJp_ePDZrUMH07Rda8E'></script>
+<script type="text/javascript" src="GeoExt/lib/GeoExt/widgets/ZoomSlider.js"></script>
+<!-- Scripts -->
+
+<script type="text/javascript" src="GeoExt/printing/LayoutStore.js"></script>
+<script type="text/javascript" src="GeoExt/printing/LayoutPrinter.js"></script>
+<script type="text/javascript" src="GeoExt/printing/ExtPrinter.js"></script>
+<script type="text/javascript" src="GeoExt/printing/GeoExtPrinter.js"></script>
+<script type="text/javascript" src="GeoExt/printing/PrinterPanel.js"></script>
+<script type="text/javascript" src="GeoExt/printing/PrinterWindow.js"></script>
+<script type="text/javascript" src="GeoExt/printing/PrintPreview.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="GeoExt/printing/preview.css" />-->
+<!-- firebug.js -->
+<!-- <script type="text/javascript" src="../firebug.js"></script>-->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="Ext.ux.GoogleVisualizationComponent.js"></script>
+
+
+<script src="getcapabilities.js"></script>
+<script type="text/javascript" src="http://maps.zgb.de:8080/geoserver/pdf/info.json?var=printCapabilities"></script>
+<!--<script type="text/javascript" src="geodatenportal_mini.js"></script>-->
+<script type="text/javascript" src="geodatenportal_unpacked.js" charset="utf-8"></script>
+<script type="text/javascript" src="playground.js"></script>
+<script type="text/javascript" src="loadingpanel.js"></script>
+<!-- CSS style definitions -->
+<!-- CSS navbar -->
+<style type="text/css">
+
+/* work around an Ext bug that makes the rendering
+** of menu items not as one would expect
+*/
+
+.ext-ie .x-menu-item-icon {
+  left: -24px;
+}
+.ext-strict .x-menu-item-icon {
+  left: 3px;
+}
+.ext-ie6 .x-menu-item-icon {
+  left: -24px;
+}
+.ext-ie7 .x-menu-item-icon {
+  left: -24px;
+}
+
+.olControlLoadingPanel {
+  background-image:url(images/loading.gif);
+  position: relative;
+  width: 195px;
+  height: 11px;
+  background-position:center;
+  background-repeat:no-repeat;
+  display: none;
+}
+
+#wrap {
+  position:absolute;
+  top:0px;
+  width: 100%;
+  margin: 0 ;
+  background-color: #34466C;
+}
+
+/* Begin Navigation Bar Styling */
+#nav {
+  position:absolute;
+  top:0px;
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  font-family:"Tahoma", Arial, serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing:1.5px;
+  list-style: none;
+  background-color: #34466C;
+  border-bottom: 1px solid #ccc;
+}
+#nav li {
+  float: left;
+}
+#nav li a {
+  display: block;
+  padding: 14px 15px;
+  text-decoration: none;
+  color: #fff;
+  border-right: 1px solid #ccc;
+}
+#nav li a:hover {
+  color: #03486B;
+  background-color: #fff;
+}
+/* End navigation bar styling. */
+
+a.treelink:link {color:red;}
+a.treelink:visited {color:blue;}
+a.treelink:hover {color:gray;}
+
+.table_allgemein {
+
+}
+.table_allgemein td {
+  color:#4B4B4B;
+  font-size:12px;
+  padding:5px;
+  font-weight:bold;
+  border: solid 0px black;
+}
+.table_allgemein tr {
+  border-left:dashed 1px grey;
+  padding:5px;
+  font-weight:bold;
+}
+.TreeHeader{
+  font-weight:bold;font-family:"Tahoma"
+}
+
+#tbar {
+  width:600px;
+}
+
+/* Openlayers customizations */
+
+div.olControlScaleLine {
+  left: auto;
+  bottom:10px;
+  font-size:xx-small;
+  right:10px;
+  background-color:white;
+  margin: 20 20 20 20;
+  border:solid white 10px;
+}
+
+/* Navigation */
+
+/* Pan- and Zoom- Panel Styles*/
+
+.olControlPanPanel .olControlPanZoom {
+  background-position:15px -120px;
+  left: 30px;
+  top: 16px;
+}
+.olControlPanPanel div {
+  background-image:url(images/tool-sprites.gif);
+  height:15px;
+  width:15px;
+  font-size:0px;
+}
+.olControlPanPanel .olControlPanNorthItemInactive {
+  background-position:15px -60px;
+  left:16px
+}
+.olControlPanPanel .olControlPanEastItemInactive {
+  background-position:15px -120px;
+  left: 30px;
+  top: 16px;
+}
+.olControlPanPanel .olControlPanSouthItemInactive {
+  background-position:15px -75px;
+  left: 16px;
+  top: 32px;
+}
+.olControlPanPanel .olControlPanWestItemInactive {
+  background-position:15px -105px;
+  left: 2px;
+  top: 16px;
+}
+.olControlZoomPanel {
+  top:1px;
+  left:13px;
+}
+.olControlZoomPanel div {
+  background-image:url(images/tool-sprites.gif);
+  height:15px;
+  width:15px;
+  font-size:0px;
+}
+.olControlZoomPanel .olControlZoomInItemInactive {
+  background-position:15px -240px;
+  position:absolute;
+  top:75px;
+  left:9px;
+}
+.olControlZoomPanel .olControlZoomToMaxExtentItemInactive {
+  display: none;
+}
+.olControlZoomPanel .olControlZoomOutItemInactive {
+  background-position:15px -255px;
+  top: 240px;
+  left:9px;
+}
+
+/***** Change Cursor *****/
+.olControlZoomBoxActive {cursor: url('images/magnifier_zoom_box.png') 4 4, default;}
+
+.olControlMeasureActive {cursor: url('images/ruler.png') -15 -10, default;}
+
+.olControlMeasureAreaActive {cursor: url('images/ruler_square.png') -23 -32, default;}
+
+.olControlWMSGetFeatureInfoActive {cursor: url('images/cursor_info.png') -32 -32, default;}
+
+.olControlDragPanActive {cursor: url('images/hand.png') -32 -32, default;}
+
+.title{font-family:arial;
+     color:#3E4B54;
+     padding:5px;
+     }
+
+#mouseposition{
+  font-family:arial;
+  display:inline;
+  text-align:left;
+  position:relative;
+  font-size:12px;
+  color:#f2f2f2;
+  font-weight:bold;
+}
+
+#region_south{
+  position:relative;
+  display:inline;
+  padding-left:10px;
+  align:right;
+  color:#f2f2f2;
+  font-family:tahoma;
+  letter-spacing:2px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+#ScaleSelector{
+  position:absolute;
+  right:0px;
+  bottom:2px;
+  padding-left:10px;
+  align:right;
+  color:gray;
+  font-family:tahoma;
+  letter-spacing:2px;
+  font-size:12px;
+  font-weight:bold;
+}
+</style>
+
+<div id="wrap">
+
+  <ul id="nav">
+
+  <!--
+  <img src="images/header_bg_zgblogo.gif" alt="www.zgb.de" align="right" />
+      <li><a href="index.html">Start</a></li>
+      <li><a href="geodatenportal.html">Geodatenportal</a></li>
+      <li><a href="einzelthemen.html">Einzelthemen</a></li>
+      <li><a href="metadaten.html">Metadaten</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+   </ul>
+  //-->
+</div>
+
+<div id="title" class ="title">
+<img src="images/header.png" align="left">
+</div>
+
+<div id="description">
+ <p></p>
+</div>
+
+<div id="south">
+  <div id ="region_south">พิกัด WGS84: </div>
+  <div id="mouseposition"></div>
+  <div id="ScaleSelector"></div>
+</div>
+</body>
+</html>
