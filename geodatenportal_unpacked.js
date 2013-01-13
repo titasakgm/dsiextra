@@ -51,8 +51,8 @@ function init() {
     var mapnik = new OpenLayers.Layer.OSM("Open Street Map (OSM)");
 
     var layer_province = new OpenLayers.Layer.WMS("OVR จังหวัด", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi.map',
-          layers: 'no_02_province',
+          map: '/ms603/map/wms-dsi-extra.map',
+          layers: 'จังหวัด',
           transparent: true
     },{
           isBaseLayer: false,
@@ -60,8 +60,8 @@ function init() {
     });
 
     var layer_amphoe = new OpenLayers.Layer.WMS("OVR อำเภอ", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi.map',
-          layers: 'no_03_amphoe',
+          map: '/ms603/map/wms-dsi-extra.map',
+          layers: 'อำเภอ',
           transparent: true
     },{
           isBaseLayer: false,
@@ -69,8 +69,8 @@ function init() {
     });
 
     var layer_tambon = new OpenLayers.Layer.WMS("OVR ตำบล", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi.map',
-          layers: 'no_04_tambon',
+          map: '/ms603/map/wms-dsi-extra.map',
+          layers: 'ตำบล',
           transparent: true
     },{
           isBaseLayer: false,

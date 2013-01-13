@@ -19,7 +19,7 @@ GeoExt.ux.layout.LayoutPrinter.OpenPrint = function() {
     if (page.indexOf('http://') === 0) {
         pageUrl = page;
     } else {
-        pageUrl = "../ux/layout/" + page;
+        pageUrl = "GeoExt/ux/layout/" + page;
     }
  	  if (Ext.isIE) {
         // appendChild problem: http://tamentis.com/doc/no_such_interface/
