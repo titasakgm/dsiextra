@@ -519,7 +519,7 @@ function init() {
             forceFit: true
         },
         store: new GeoExt.data.WMSCapabilitiesStore({
-            url: "/cgi-bin/mapserv?SERVICE=WMS&REQUEST=GetCapabilities&map=/ms601/map/wms-dsi.map",
+            url: "/cgi-bin/mapserv?SERVICE=WMS&REQUEST=GetCapabilities&map=/ms603/map/wms-dsi-extra.map",
             autoLoad: true
         }),
         columns: [{
