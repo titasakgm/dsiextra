@@ -1,5 +1,5 @@
 .x-btn .icon-print { 
-    background-image: url(../images/printer.png);
+    background-image: url(../../images/printer.png);
 }
 
 .gx-printpreview {
@@ -32,7 +32,7 @@
 .gx-northarrow {
     background: transparent url(../images/north_arrow.png) no-repeat;
     *-background: none;
-    *-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/north_arrow.png',sizingMethod='crop');
+    *-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/north_arrow.png',sizingMethod='crop');
     height: 24px;
     width: 24px;
 }
