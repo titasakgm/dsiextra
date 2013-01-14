@@ -898,34 +898,6 @@ var visualConfigs = {
                 },
                 scope: this
             },
-            {
-                text: "Metadata",
-                icon: 'images/grid.png',
-                handler: function () {
-                    if (!winContext) {
-                        var node = layerTree.getSelectionModel().getSelectedNode();
-                        var layername = node.text;
-                        var winContext = new Ext.Window({
-                            title: '<span style="color:#00; font-weight:bold;">Metadata: </span>' + layername,
-                            layout: 'fit',
-                            text: layername,
-                            width: 800,
-                            height: 500,
-                            closeAction: 'hide',
-                            plain: true,
-                            items: [tabsMetadata],
-                            buttons: [{
-                                text: 'Close',
-                                handler: function () {
-                                    winContext.hide()
-                                }
-                            }]
-                        })
-                    }
-                    winContext.show(this)
-                },
-                scope: this
-            },
             removeLayerAction,
             {
                 text: "Custom Layers",
