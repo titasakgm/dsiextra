@@ -206,6 +206,25 @@ function init() {
         }],
         data: Ext.selectdata.zooms
     });
+
+    function geocoder(q) {
+      Ext.Ajax.request({
+        url: 'rb/geocoder.rb'
+        ,params: { q: q }
+        ,success: function(resp,opt) {
+          var data = Ext.decode(resp.responseText);
+          var lat = data.lat;
+          var lng = data.lng;
+          var poi = new OpenLayers.LonLat(lng,lat);
+          poi = poi.transform(epsg4326, epsg900913);
+          mapPanel.map.setCenter(poi,18);
+        }
+        ,failure: function(resp, opt) {
+          Ext.Msg.alert('Result', 'Failed');
+        } 
+      });
+    };
+
     var quickzoom = new Ext.form.ComboBox({
         tpl: '<tpl for="."><div ext:qtip="{label}" class="x-combo-list-item">{label}</div></tpl>',
         store: zoomstore,
@@ -217,7 +236,16 @@ function init() {
         width: 175,
         emptyText: 'Quick Zoom',
         selectOnFocus: true,
+        enableKeyEvents: true,
+        editable: true,
         listeners: {
+            'keypress': function(combo, e) {
+              if (e.getCharCode() == e.ENTER) {
+                var kw = combo.getRawValue();
+                ll = geocoder(kw);
+                return false;
+              }
+            },
             'select': function (combo, record) {
                 mapPanel.map.zoomToExtent(new OpenLayers.Bounds(record.data.ymin, record.data.xmin, record.data.ymax, record.data.xmax))
             },
