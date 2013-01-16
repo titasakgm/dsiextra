@@ -79,6 +79,25 @@ if q.include?(' ')
       lng = ll[0]
       lat = ll[1]
     end
+  elsif q.count(' ') == 2 # 3 arguments (I or INDIAN or 1975 ==> 24047|24048)
+    if q.upcase =~ /I/ or q =~ /1975/ # This is UTM Indian 1975
+      dd = []
+      dx = q.split(' ')
+      dx.each do |d|
+        next if d == '1975'
+        next if d.to_f == 0
+        dd.push(d)
+      end
+      if dd.length == 2
+        ll = check(dd[0],dd[1])
+        lng = ll[0]
+        lat = ll[1]
+      else
+        place = %x! geocode #{q} !
+      end
+    else
+      place = %x! geocode #{q} !
+    end
   else
     place = %x! geocode #{q} !
   end
