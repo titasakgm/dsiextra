@@ -18,7 +18,7 @@ def log(msg)
 end
 
 def transform(lng,lat,srid)
-  con = PGconn.connect("localhost",5432,nil,nil,"dsi","titasak","")
+  con = PGconn.connect("localhost",5432,nil,nil,"dsi","admin","")
   sql = "SELECT astext(transform(setsrid(GeometryFromText("
   sql += "'POINT(#{lng} #{lat})'),#{srid}),900913)) as google"
   res = con.exec(sql)
