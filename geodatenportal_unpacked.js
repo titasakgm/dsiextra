@@ -50,33 +50,6 @@ function init() {
 
     var mapnik = new OpenLayers.Layer.OSM("Open Street Map (OSM)");
 
-    var layer_province = new OpenLayers.Layer.WMS("OVR จังหวัด", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi-extra.map',
-          layers: 'จังหวัด',
-          transparent: true
-    },{
-          isBaseLayer: false,
-          visibility: false
-    });
-
-    var layer_amphoe = new OpenLayers.Layer.WMS("OVR อำเภอ", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi-extra.map',
-          layers: 'อำเภอ',
-          transparent: true
-    },{
-          isBaseLayer: false,
-          visibility: false
-    });
-
-    var layer_tambon = new OpenLayers.Layer.WMS("OVR ตำบล", "http://203.151.201.129/cgi-bin/mapserv?", {
-          map: '/ms603/map/wms-dsi-extra.map',
-          layers: 'ตำบล',
-          transparent: true
-    },{
-          isBaseLayer: false,
-          visibility: false
-    });
-
     var mapOptions = {
         projection: epsg900913,
         displayProjection: epsg4326,
@@ -733,7 +706,7 @@ var visualConfigs = {
         region: 'center',
         map: map,
         //layers: [mapnik, gsat, ghybrid, gphysical, gmap,layer_wea, layer_solar, layer_kraftwerke, layer_erdwaerme, layer_wasserkraft, layer_biogas, layer_avifaun_gast, layer_avifaun_brut, layer_tabu_wgs84, Landschaftsbild_10km_Puffer_Harz_wgs84, Landschaftsbild_5km_Puffer_Lappwald_wgs84, layer_suchraum_v4, layer_suchraum_v3, layer_suchraum_v2, layer_suchraum_v1, layer_windpotential, layer_wea_f, Grenzen-label, Grenzen],
-        layers: [mapnik, gsat, ghybrid, gphysical, gmap, layer_tambon, layer_amphoe, layer_province],
+        layers: [mapnik, gsat, ghybrid, gphysical, gmap],
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
