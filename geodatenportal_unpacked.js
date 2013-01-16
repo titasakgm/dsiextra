@@ -795,17 +795,6 @@ var visualConfigs = {
 
     layerRoot.appendChild(layerListBase);
 
-    layerRoot.appendChild(new GeoExt.tree.OverlayLayerContainer({
-        id: 'OVR',
-        text: "<span class='TreeHeader'>Overlayers</span>",
-        expanded: true,
-        loader: {
-            filter: function (record) {
-                return record.get("layer").name.indexOf("OVR") !== -1
-            }
-        }
-    }));
-
     var dsi_store = new GeoExt.data.LayerStore({
         id: "id_dsi_store",
         text: "DSI Layers4",
