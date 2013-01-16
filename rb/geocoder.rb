@@ -101,7 +101,7 @@ end
 
 c = CGI::new
 q = c['q']
-q = q.strip
+q = q.strip.tr(',',' ')
 
 lat = lng = 0.0
 place = nil
