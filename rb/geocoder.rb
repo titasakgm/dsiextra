@@ -31,7 +31,7 @@ end
 
 def check(p1,p2)
   ll = []
-  con = PGconn.connect("localhost",5432,nil,nil,"dsi","titasak","")
+  con = PGconn.connect("localhost",5432,nil,nil,"dsi","admin","")
   sql = "SELECT srid "
   sql += "FROM thaix "
   sql += "WHERE minx <= #{p1} AND maxx >= #{p1} "
