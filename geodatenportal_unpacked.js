@@ -83,7 +83,7 @@ function init() {
         units: "m",
         numZoomLevels: 21,
         maxResolution: 156543.0339,
-        maxExtent: new OpenLayers.Bounds(10825820,613199,11772036,2332357), // Thailand EPSG:900913 extent
+        maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34), // World EPSG:900913 extent
         controls: [new OpenLayers.Control.MouseDefaults(), 
 				   new OpenLayers.Control.MousePosition({div: document.getElementById("mouseposition"),}), 
 				   new OpenLayers.Control.ScaleLine({maxWidth: 200,geodesic: true})
@@ -668,7 +668,7 @@ var visualConfigs = {
         enableToggle: false,
         handler: function (toggled) {
             if (!win1) {
-				var win1 = new Ext.Window({
+		var win1 = new Ext.Window({
                         title: 'Statistic',
 						border : true,
                         layout: 'fit',
@@ -693,6 +693,17 @@ var visualConfigs = {
         }
     });
 	
+    var zoomthai = new Ext.Button({
+        text: '',
+        icon: 'images/zoomfull.png',
+        tip: 'กลับสู่แผนที่เริ่มต้น',
+        enableToggle: false,
+        handler: function () {
+          map.zoomToExtent(new OpenLayers.Bounds(10825820,613199,11772036,2332357)); // Thailand EPSG:900913 extent
+        },
+        allowDepress: false
+    });
+
     var printDialog;
     var printProvider = new GeoExt.data.PrintProvider({
         method: "GET",
@@ -731,7 +742,7 @@ var visualConfigs = {
             y: 40,
             plugins: new GeoExt.ZoomSliderTip()
         }],
-        tbar: [graphbutton,'-',
+        tbar: [zoomthai,'-',
 	    new Ext.Button({
               text: 'Info',
               icon: 'images/about.png',
