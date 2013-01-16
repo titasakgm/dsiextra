@@ -63,6 +63,42 @@ def check(p1,p2)
   ll
 end
 
+def check1975(p1,p2)
+  ll = []
+  con = PGconn.connect("localhost",5432,nil,nil,"dsi","admin","")
+  sql = "SELECT srid "
+  sql += "FROM thaix "
+  sql += "WHERE minx <= #{p1} AND maxx >= #{p1} "
+  sql += "AND miny <= #{p2} AND maxy >= #{p2} "
+  sql += "AND srid IN (24047,24048) "
+  res = con.exec(sql)
+  if res.count == 0
+    tmp = p2
+    p2 = p1
+    p1 = tmp
+    sql = "SELECT srid "
+    sql += "FROM thaix "
+    sql += "WHERE minx <= #{p1} AND maxx >= #{p1} "
+    sql += "AND miny <= #{p2} AND maxy >= #{p2} "
+    sql += "AND srid IN (24047,24048) "
+    res = con.exec(sql)
+  end
+  con.close
+
+  srid = 'NA'
+  res.each do |rec|
+    srid = rec['srid']
+    break
+  end  
+  ll = []
+  if srid != 'NA'
+    lng = p1
+    lat = p2
+    ll = transform(lng,lat,srid)
+  end
+  ll
+end
+
 c = CGI::new
 q = c['q']
 q = q.strip
@@ -89,7 +125,7 @@ if q.include?(' ')
         dd.push(d)
       end
       if dd.length == 2
-        ll = check(dd[0],dd[1])
+        ll = check1975(dd[0],dd[1])
         lng = ll[0]
         lat = ll[1]
       else
