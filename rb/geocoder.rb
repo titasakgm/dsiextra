@@ -1,6 +1,8 @@
-#!/usr/local/rvm/bin/ruby
+#!/usr/bin/ruby
 # -*- encoding : utf-8 -*-
 
+require 'rubygems'
+require 'pg'
 require 'cgi'
 
 class String 
@@ -15,6 +17,52 @@ def log(msg)
   log.close
 end
 
+def transform(lng,lat,srid)
+  con = PGconn.connect("localhost",5432,nil,nil,"dsi","titasak","")
+  sql = "SELECT astext(transform(setsrid(GeometryFromText("
+  sql += "'POINT(#{lng} #{lat})'),#{srid}),900913)) as google"
+  res = con.exec(sql)
+  con.close
+
+  pt = res[0]['google']
+  # POINT(11131949.0793274 1459732.2718805)
+  ll = pt.gsub(/POINT/,'').tr('()','').split(' ')
+end
+
+def check(p1,p2)
+  ll = []
+  con = PGconn.connect("localhost",5432,nil,nil,"dsi","titasak","")
+  sql = "SELECT srid "
+  sql += "FROM thaix "
+  sql += "WHERE minx <= #{p1} AND maxx >= #{p1} "
+  sql += "AND miny <= #{p2} AND maxy >= #{p2} "
+  res = con.exec(sql)
+  if res.count == 0
+    tmp = p2
+    p2 = p1
+    p1 = tmp
+    sql = "SELECT srid "
+    sql += "FROM thaix "
+    sql += "WHERE minx <= #{p1} AND maxx >= #{p1} "
+    sql += "AND miny <= #{p2} AND maxy >= #{p2} "
+    res = con.exec(sql)
+  end
+  con.close
+
+  srid = 'NA'
+  res.each do |rec|
+    srid = rec['srid']
+    break
+  end  
+  ll = []
+  if srid != 'NA'
+    lng = p1
+    lat = p2
+    ll = transform(lng,lat,srid)
+  end
+  ll
+end
+
 c = CGI::new
 q = c['q']
 q = q.strip
@@ -27,13 +75,9 @@ if q.include?(' ')
   if q.count(' ') == 1 # 2 arguments
     dd = q.split(' ')
     if dd[0].numeric? and dd[1].numeric? # input has 2 numbers 
-      if (dd[0].to_f > 90.0 and dd[1].to_f <= 90.0) # lat, lng
-        lng = dd[0]
-        lat = dd[1]
-      elsif (dd[0].to_f <= 90.0 and dd[1].to_f > 90.0) # lng, lat
-        lng = dd[1]
-        lat = dd[0]
-      end
+      ll = check(dd[0],dd[1])
+      lng = ll[0]
+      lat = ll[1]
     end
   else
     place = %x! geocode #{q} !
@@ -50,6 +94,9 @@ if place != nil
       lat = l.chomp.split(':').last.strip
     end
   end
+  ll = transform(lng,lat,4326)
+  lng = ll[0]
+  lat = ll[1]
 end
 
 data = "{'success':'true','lng':'#{lng}','lat':'#{lat}'}"

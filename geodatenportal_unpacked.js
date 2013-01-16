@@ -216,7 +216,6 @@ function init() {
           var lat = data.lat;
           var lng = data.lng;
           var poi = new OpenLayers.LonLat(lng,lat);
-          poi = poi.transform(epsg4326, epsg900913);
           mapPanel.map.setCenter(poi,17);
         }
         ,failure: function(resp, opt) {
