@@ -34,7 +34,6 @@ function init() {
       hideIntree: true
     });
 
-/***** This is for v2
     var gsat = new OpenLayers.Layer.Google("Google Satellite", {
         type: G_SATELLITE_MAP,
         sphericalMercator: true
@@ -54,21 +53,6 @@ function init() {
         type: null,
         sphericalMercator: true
     });
-
-*****/
-
-/***** Try v3 *****/
-
-    var ghybrid = new OpenLayers.Layer.Google("Google Hybrid", {
-        mapTypeId: google.maps.MapTypeId.HYBRID,
-        sphericalMercator: true
-    });
-
-    var gsv = new OpenLayers.Layer.Google("Google Street View", {
-        sphericalMercator: true
-    });
-
-/***** end v3 *****/
 
     var mapnik = new OpenLayers.Layer.OSM("Open Street Map (OSM)");
 
