@@ -501,7 +501,7 @@ function init() {
         },
         {
             title: 'INSPIRE',
-            html: "<table class='table_allgemein'>" + "<tr><td><img align='left' height='90px' src='images/inspireLogo.gif' alt='Inspire Logo' /></td></tr>" + "<tr><td>Information Zu den Inspire Richtlinien</td></tr>" + "<tr><td>INSPIRE (Infrastructure for Spatial Information in Europe) steht als K&uuml;rzel f&uuml;r die Richtlinie 2007/2/EG des Europ&auml;ischen Parlaments und des Rates zur Schaffung einer Geodateninfrastruktur in der Gemeinschaft.</td></tr>" + "<tr><td>Mit INSPIRE ist der rechtliche Rahmen f&uuml;r den Aufbau von Geodateninfrastrukturen definiert. Viele fachliche und technische Einzelheiten sind in der Richtlinie selbst nicht geregelt. Hier erfolgt eine - ebenfalls f&uuml;r die Mitgliedstaaten rechtlich verbindliche - Festlegung mittels so genannter Durchf&uuml;hrungsbestimmungen. Diese werden schrittweise f&uuml;r die INSPIRE-Themen erarbeitet und anschlie&szlig;end von den Mitgliedstaaten wiederum in nationales Recht umgesetzt. </td></tr>" + "<tr><td></td></tr>" + "</table>"
+            html: "ขอขอบคุณ website ที่เป็นต้นแบบในการพัฒนา http://maps.zgb.de/www/zgb_energie/geodatenportal.html"
         }]
     });
 
@@ -513,20 +513,14 @@ function init() {
         },
         resizable: false,
         items: [{
-            title: 'ZGB Energieportal',
-            html: "<table class='table_allgemein'>" + "<tr><td><a href='http://www.zgb.de'><img height='100px' src='images/LogoZGB.gif' alt='zgb' /></a></td></tr>" + "<tr><td>Hier stehen allgemeine Sachen &uuml;ber den ZGB und das Energie Portal</td></tr>" + "<tr><td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></td></tr>" + "</table>"
+            title: 'DSI Map Extra',
+            html: "<table class='table_allgemein'>" + "<tr><td><a href='http://dsi-map.go.th'><img height='100px' src='images/dsi-logo.png' alt='DSI' /></a></td></tr>" + "<tr><td>
+รายละเอียดด้านเทคนิคการพัฒนา DSI Map Extra</td></tr>" + "<tr><td><p>
+พัฒนา Smart Search ที่สามารถใส่ input ได้หลากหลาย เริ่มต้นด้วย แสดงรายการ Quick Zoom สำหรับสถานที่ตัวอย่าง สามารถกรอกข้อมูลพิกัด ในรูปแบบต่างๆ เช่น Lat/Long UTM Zone 47 48, UTM Indian 1975 เฉพาะกรณีนี้ ผู้ใช้งานต้องระบุคำว่า Indian หร่อ 1975 ต่อท้ายโดยเว้นวรรคเพื่อให้ระบบได้ทราบว่าเป็น projection ชนิดนี้ (อย่างน้อย ระบุอักษร I หรือ i)<p>นอกจากนี้ ยังได้เพิ่มความสามารถ geocoder ทำให้ระบุชื่อสถานที่เป็นภาษาไทย หรือ ภาษาอังกฤษได้ เมื่อกดปุ่ม [Enter] ระบบจะทำการค้นหาตำแหน่งพิกัดให้ และหากพบคำค้น จะทำการ Zoom ไปยังสถานที่นั้นๆทันที</p></td></tr>" + "</table>"
         },
         {
-            title: 'Allgemein',
-            html: "<table class='table_allgemein'>" + "<tr><td>Information &uuml;ber die verwendeten Technologien</td></tr>" + "<tr><td>WMS/WFS Server:</td><td><img height='50px' src='images/GeoServer_100.png' alt='Geoserver' /></td></tr>" + "<tr><td>Tile Caching: </td><td><img height='50px' src='images/geowebcache1.png' alt='Geoserver' /></td></tr>" + "<tr><td>Oberfl&auml;che: </td><td><img height='50px' src='images/logoEXT.png' alt='Geoserver' /></td></tr>" + "</table>"
-        },
-        {
-            title: 'Nutzungshinweise',
-            html: "" + "<table class='table_allgemein'>" + "<tr><td>Information zur Bedienung</td></tr>" + "<tr><td>Bedienungsanleitung</td></tr>" + "</table>"
-        },
-        {
-            title: 'Kontakt',
-            html: "" + "<table class='table_allgemein'>" + "<tr><td>Ansprechpartner 1 </td></tr>" + "<tr><td>Ansprechpartner 2 </td></tr>" + "<tr><td>Ansprechpartner 3 </td></tr>" + "<tr><td>Ansprechpartner 4 </td></tr>" + "</table>"
+            title: 'รายละเอียดด้านเทคนิค',
+            html: "<table class='table_allgemein'>" + "<tr><td>ข้อมูลด้านเทคนิค</td></tr>" + "<tr><td>WMS/WFS Server:</td><td><img height='50px' src='images/GeoServer_100.png' alt='Geoserver' /></td></tr>" + "<tr><td>Tile Caching: </td><td><img height='50px' src='images/geowebcache1.png' alt='Geoserver' /></td></tr>" + "<tr><td>GUI Design</td><td><img height='50px' src='images/logoEXT.png' alt='Geoserver' /></td></tr>" + "</table>"
         }]
     });
     
@@ -719,11 +713,11 @@ var visualConfigs = {
 	    new Ext.Button({
               text: 'Info',
               icon: 'images/about.png',
-              tooltip: 'Info zur Karte',
+              tooltip: 'Technical Info.',
               handler: function () {
                 if (!win) {
                     win = new Ext.Window({
-                        title: 'Info zur Karte',
+                        title: 'Technical Info.',
                         layout: 'fit',
                         width: 600,
                         height: 500,
