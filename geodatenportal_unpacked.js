@@ -187,8 +187,7 @@ function init() {
     });
 
     function clear_icon_marker() {
-      if (marker)
-        markers.removeMarker(marker);
+      markers.clearMarkers();
     }
 
     function geocoder(q) {
