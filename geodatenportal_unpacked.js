@@ -728,7 +728,7 @@ var visualConfigs = {
         region: 'center',
         map: map,
         //layers: [mapnik, gsat, ghybrid, gphysical, gmap,layer_wea, layer_solar, layer_kraftwerke, layer_erdwaerme, layer_wasserkraft, layer_biogas, layer_avifaun_gast, layer_avifaun_brut, layer_tabu_wgs84, Landschaftsbild_10km_Puffer_Harz_wgs84, Landschaftsbild_5km_Puffer_Lappwald_wgs84, layer_suchraum_v4, layer_suchraum_v3, layer_suchraum_v2, layer_suchraum_v1, layer_windpotential, layer_wea_f, Grenzen-label, Grenzen],
-        layers: [mapnik, ghybrid, gsv, markers],
+        layers: [mapnik, ghybrid, gphysical, gsat, gmap, markers],
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
