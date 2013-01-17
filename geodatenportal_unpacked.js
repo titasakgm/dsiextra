@@ -28,6 +28,7 @@ function init() {
     day_names[day_names.length] = "Saterday";
     var date = day_names[current_date.getDay()] + ", " + month_names[current_date.getMonth()] + " " + current_date.getDate() + " " + " " + current_date.getFullYear();
 
+    var marker;
     var markers = new OpenLayers.Layer.Markers( "Markers", {
       displayInLayerSwitcher: false,
       hideIntree: true
@@ -185,6 +186,11 @@ function init() {
         data: Ext.selectdata.zooms
     });
 
+    function clear_icon_marker() {
+      if (marker)
+        markers.removeMarker(marker);
+    }
+
     function geocoder(q) {
       Ext.Ajax.request({
         url: 'rb/geocoder.rb'
@@ -200,7 +206,9 @@ function init() {
           var size = new OpenLayers.Size(48,48);
           var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
           var icon = new OpenLayers.Icon('images/icon_marker.png', size, offset);
-          markers.addMarker(new OpenLayers.Marker(poi,icon));
+          clear_icon_marker();
+          marker = new OpenLayers.Marker(poi,icon);
+          markers.addMarker(marker);
 
         }
         ,failure: function(resp, opt) {
@@ -232,6 +240,17 @@ function init() {
             },
             'select': function (combo, record) {
                 mapPanel.map.zoomToExtent(new OpenLayers.Bounds(record.data.ymin, record.data.xmin, record.data.ymax, record.data.xmax))
+
+                //add marker at this lat,lng
+                clear_icon_marker();
+                var size = new OpenLayers.Size(48,48);
+                var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+                var icon = new OpenLayers.Icon('images/icon_marker.png', size, offset);
+                var x = parseFloat(record.data.xmin) + (parseFloat(record.data.xmax) - parseFloat(record.data.xmin) / 2.0);
+                var y = parseFloat(record.data.ymin) + (parseFloat(record.data.ymax) - parseFloat(record.data.ymin) / 2.0);
+                var poi = new OpenLayers.LonLat(x,y);
+                marker = new OpenLayers.Marker(poi,icon);
+                markers.addMarker(marker);
             },
             scope: this
         }
