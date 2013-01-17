@@ -202,7 +202,7 @@ function init() {
           mapPanel.map.setCenter(poi,17);
 
           //add marker at this lat,lng
-          var size = new OpenLayers.Size(48,48);
+          var size = new OpenLayers.Size(32,32);
           var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
           var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
           clear_icon_marker();
@@ -242,7 +242,7 @@ function init() {
 
                 //add marker at this lat,lng
                 clear_icon_marker();
-                var size = new OpenLayers.Size(48,48);
+                var size = new OpenLayers.Size(32,32);
                 var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
                 var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
                 var x = parseFloat(record.data.xmin) + (parseFloat(record.data.xmax) - parseFloat(record.data.xmin) / 2.0);
