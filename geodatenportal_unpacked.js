@@ -28,6 +28,11 @@ function init() {
     day_names[day_names.length] = "Saterday";
     var date = day_names[current_date.getDay()] + ", " + month_names[current_date.getMonth()] + " " + current_date.getDate() + " " + " " + current_date.getFullYear();
 
+    var markers = new OpenLayers.Layer.Markers( "Markers", {
+      displayInLayerSwitcher: false,
+      hideIntree: true
+    });
+
     var gsat = new OpenLayers.Layer.Google("Google Satellite", {
         type: G_SATELLITE_MAP,
         sphericalMercator: true
@@ -190,6 +195,13 @@ function init() {
           var lng = data.lng;
           var poi = new OpenLayers.LonLat(lng,lat);
           mapPanel.map.setCenter(poi,17);
+
+          //add marker at this lat,lng
+          var size = new OpenLayers.Size(48,48);
+          var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+          var icon = new OpenLayers.Icon('images/icon_marker.png', size, offset);
+          markers.addMarker(new OpenLayers.Marker(poi,icon));
+
         }
         ,failure: function(resp, opt) {
           Ext.Msg.alert('Result', 'Failed');
@@ -698,7 +710,7 @@ var visualConfigs = {
         region: 'center',
         map: map,
         //layers: [mapnik, gsat, ghybrid, gphysical, gmap,layer_wea, layer_solar, layer_kraftwerke, layer_erdwaerme, layer_wasserkraft, layer_biogas, layer_avifaun_gast, layer_avifaun_brut, layer_tabu_wgs84, Landschaftsbild_10km_Puffer_Harz_wgs84, Landschaftsbild_5km_Puffer_Lappwald_wgs84, layer_suchraum_v4, layer_suchraum_v3, layer_suchraum_v2, layer_suchraum_v1, layer_windpotential, layer_wea_f, Grenzen-label, Grenzen],
-        layers: [mapnik, ghybrid, gsat, gphysical, gmap],
+        layers: [mapnik, ghybrid, gsat, gphysical, gmap, markers],
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
