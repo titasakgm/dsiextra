@@ -514,10 +514,10 @@ function init() {
         resizable: false,
         items: [{
             title: 'DSI Map Extra',
-            html: "<table class='table_allgemein'>" + "<tr><td><a href='http://dsi-map.go.th'><img height='100px' src='images/dsi-logo.png' alt='DSI' /></a></td></tr>" + "<tr><td>รายละเอียดด้านเทคนิคการพัฒนา DSI Map Extra</td></tr>" + "<tr><td><p>พัฒนา Smart Search ที่สามารถใส่ input ได้หลากหลาย เริ่มต้นด้วย แสดงรายการ Quick Zoom สำหรับสถานที่ตัวอย่าง สามารถกรอกข้อมูลพิกัด ในรูปแบบต่างๆ เช่น Lat/Long UTM Zone 47 48, UTM Indian 1975 เฉพาะกรณีนี้ ผู้ใช้งานต้องระบุคำว่า Indian หร่อ 1975 ต่อท้ายโดยเว้นวรรคเพื่อให้ระบบได้ทราบว่าเป็น projection ชนิดนี้ (อย่างน้อย ระบุอักษร I หรือ i)<p>&nbsp;</p>นอกจากนี้ ยังได้เพิ่มความสามารถ geocoder ทำให้ระบุชื่อสถานที่เป็นภาษาไทย หรือ ภาษาอังกฤษได้ เมื่อกดปุ่ม [Enter] ระบบจะทำการค้นหาตำแหน่งพิกัดให้ และหากพบคำค้น จะทำการ Zoom ไปยังสถานที่นั้นๆทันที</p><p>ขอขอบคุณต้นแบบสำหรับการพัฒนา http://maps.zgb.de/www/zgb_energie/geodatenportal.html</p></td></tr>" + "</table>"
+            html: "<table class='table_allgemein'>" + "<tr><td><a href='http://dsi-map.go.th'><img height='100px' src='images/dsi-logo.png' alt='DSI' /></a></td></tr>" + "<tr><td>การพัฒนา DSI Map Extra</td></tr>" + "<tr><td><p>พัฒนา Smart Search ที่สามารถใส่ input ได้หลากหลาย เริ่มต้นด้วย แสดงรายการ Quick Zoom สำหรับสถานที่ตัวอย่าง สามารถกรอกข้อมูลพิกัด ในรูปแบบต่างๆ เช่น Lat/Long UTM Zone 47 48, UTM Indian 1975 เฉพาะกรณีนี้ ผู้ใช้งานต้องระบุคำว่า Indian หร่อ 1975 ต่อท้ายโดยเว้นวรรคเพื่อให้ระบบได้ทราบว่าเป็น projection ชนิดนี้ (อย่างน้อย ระบุอักษร I หรือ i)<p>&nbsp;</p>นอกจากนี้ ยังได้เพิ่มความสามารถ geocoder ทำให้ระบุชื่อสถานที่เป็นภาษาไทย หรือ ภาษาอังกฤษได้ เมื่อกดปุ่ม [Enter] ระบบจะทำการค้นหาตำแหน่งพิกัดให้ และหากพบคำค้น จะทำการ Zoom ไปยังสถานที่นั้นๆทันที</p><p>&nbsp;</p><p>ขอขอบคุณต้นแบบสำหรับการพัฒนา <a href='http://maps.zgb.de/www/zgb_energie/geodatenportal.html'>ZGB Website</a></p></td></tr>" + "</table>"
         },
         {
-            title: 'รายละเอียดการพัฒนา',
+            title: 'ข้อมูลด้านเทคนิค',
             html: "<table class='table_allgemein'>" + "<tr><td>ข้อมูลด้านเทคนิค</td></tr>" + "<tr><td>WMS/WFS Server:</td><td><img height='50px' src='images/GeoServer_100.png' alt='Geoserver' /></td></tr>" + "<tr><td>Tile Caching: </td><td><img height='50px' src='images/geowebcache1.png' alt='Geoserver' /></td></tr>" + "<tr><td>GUI Design</td><td><img height='50px' src='images/logoEXT.png' alt='Geoserver' /></td></tr>" + "</table>"
         }]
     });
@@ -711,11 +711,11 @@ var visualConfigs = {
 	    new Ext.Button({
               text: 'Info',
               icon: 'images/about.png',
-              tooltip: 'Technical Info.',
+              tooltip: 'ข้อมูลด้านเทคนิค',
               handler: function () {
                 if (!win) {
                     win = new Ext.Window({
-                        title: 'Technical Info.',
+                        title: 'ข้อมูลด้านเทคนิค',
                         layout: 'fit',
                         width: 600,
                         height: 500,
