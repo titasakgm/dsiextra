@@ -801,8 +801,6 @@ var visualConfigs = {
 
     });
 	
-    gsv.mapObject.addOverlay(new GStreetviewOverlay());
- 	
  // tree
 	
     var layerRoot = new Ext.tree.TreeNode({
