@@ -34,6 +34,7 @@ function init() {
       hideIntree: true
     });
 
+/***** This is for v2
     var gsat = new OpenLayers.Layer.Google("Google Satellite", {
         type: G_SATELLITE_MAP,
         sphericalMercator: true
@@ -53,6 +54,21 @@ function init() {
         type: null,
         sphericalMercator: true
     });
+
+*****/
+
+/***** Try v3 *****/
+
+    var ghybrid = new OpenLayers.Layer.Google("Google Hybrid", {
+        mapTypeId: google.maps.MapTypeId.HYBRID,
+        sphericalMercator: true
+    });
+
+    var gsv = new OpenLayers.Layer.Google("Google Street View", {
+        sphericalMercator: true
+    });
+
+/***** end v3 *****/
 
     var mapnik = new OpenLayers.Layer.OSM("Open Street Map (OSM)");
 
@@ -728,7 +744,7 @@ var visualConfigs = {
         region: 'center',
         map: map,
         //layers: [mapnik, gsat, ghybrid, gphysical, gmap,layer_wea, layer_solar, layer_kraftwerke, layer_erdwaerme, layer_wasserkraft, layer_biogas, layer_avifaun_gast, layer_avifaun_brut, layer_tabu_wgs84, Landschaftsbild_10km_Puffer_Harz_wgs84, Landschaftsbild_5km_Puffer_Lappwald_wgs84, layer_suchraum_v4, layer_suchraum_v3, layer_suchraum_v2, layer_suchraum_v1, layer_windpotential, layer_wea_f, Grenzen-label, Grenzen],
-        layers: [mapnik, ghybrid, gsat, gphysical, gmap, markers],
+        layers: [mapnik, ghybrid, gsv, markers],
         items: [{
             xtype: "gx_zoomslider",
             vertical: true,
@@ -801,7 +817,8 @@ var visualConfigs = {
 
     });
 	
-	
+    gsv.mapObject.addOverlay(new GStreetviewOverlay());
+ 	
  // tree
 	
     var layerRoot = new Ext.tree.TreeNode({
