@@ -343,7 +343,7 @@ function init() {
         text: "",
         tooltip: "Select Features",
         enableToggle: true,
-        icon: 'images/information.png',
+        icon: './images/information.png',
         toggleGroup: toggleGroup,
         control: featureInfo,
         map: map
