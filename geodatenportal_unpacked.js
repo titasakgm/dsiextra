@@ -204,7 +204,7 @@ function init() {
           //add marker at this lat,lng
           var size = new OpenLayers.Size(48,48);
           var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-          var icon = new OpenLayers.Icon('images/icon_marker.png', size, offset);
+          var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
           clear_icon_marker();
           marker = new OpenLayers.Marker(poi,icon);
           markers.addMarker(marker);
@@ -244,7 +244,7 @@ function init() {
                 clear_icon_marker();
                 var size = new OpenLayers.Size(48,48);
                 var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-                var icon = new OpenLayers.Icon('images/icon_marker.png', size, offset);
+                var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
                 var x = parseFloat(record.data.xmin) + (parseFloat(record.data.xmax) - parseFloat(record.data.xmin) / 2.0);
                 var y = parseFloat(record.data.ymin) + (parseFloat(record.data.ymax) - parseFloat(record.data.ymin) / 2.0);
                 var poi = new OpenLayers.LonLat(x,y);
