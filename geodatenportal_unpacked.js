@@ -822,7 +822,7 @@ var visualConfigs = {
             printerWindow.show();
         }
 
-        }), '->', searchx-icon, search_box, search_icon]
+        }), '->', searchx_icon, search_box, search_icon]
 
     });
 	
