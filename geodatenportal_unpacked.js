@@ -216,44 +216,69 @@ function init() {
       });
     };
 
-    var quickzoom = new Ext.form.ComboBox({
-        tpl: '<tpl for="."><div ext:qtip="{label}" class="x-combo-list-item">{label}</div></tpl>',
-        store: zoomstore,
-        displayField: 'label',
-        typeAhead: true,
-        mode: 'local',
-        forceSelection: true,
-        triggerAction: 'all',
-        width: 175,
-        emptyText: 'Quick Zoom',
-        selectOnFocus: true,
-        enableKeyEvents: true,
-        editable: true,
-        listeners: {
-            'keypress': function(combo, e) {
-              if (e.getCharCode() == e.ENTER) {
-                var kw = combo.getRawValue();
-                ll = geocoder(kw);
-                return false;
-              }
-            },
-            'select': function (combo, record) {
-                mapPanel.map.zoomToExtent(new OpenLayers.Bounds(record.data.ymin, record.data.xmin, record.data.ymax, record.data.xmax))
-
-                //add marker at this lat,lng
-                clear_icon_marker();
-                var size = new OpenLayers.Size(32,32);
-                var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-                var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
-                var x = parseFloat(record.data.xmin) + (parseFloat(record.data.xmax) - parseFloat(record.data.xmin) / 2.0);
-                var y = parseFloat(record.data.ymin) + (parseFloat(record.data.ymax) - parseFloat(record.data.ymin) / 2.0);
-                var poi = new OpenLayers.LonLat(x,y);
-                marker = new OpenLayers.Marker(poi,icon);
-                markers.addMarker(marker);
-            },
-            scope: this
-        }
+    var search_box = new Ext.form.TextField({
+      id: 'id_search_box',
+      width: 100,
+      enableKeyEvents: true,
+      emptyText: 'Search..',
+      listeners: {
+        'keypress': function(combo, e) {
+          if (e.getCharCode() == e.ENTER) {
+            var kw = combo.getRawValue();
+            ll = geocoder(kw);
+            //add marker at this lat,lng
+            clear_icon_marker();
+            var size = new OpenLayers.Size(32,32);
+            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+            var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
+            var poi = new OpenLayers.LonLat(ll.lng, ll.lat);
+            marker = new OpenLayers.Marker(poi,icon);
+            markers.addMarker(marker);
+            map.setCenter(poi,17);
+          } else {
+            var s = field.getRawValue().length;
+            if (s > 10) {
+              var ex = (s - 10) / 6;
+              this.setWidth(100 + (ex+1) * 20);
+            }
+          }
+        }                                   
+      }
     });
+
+    var searchx_icon = new Ext.Toolbar.Button({
+      text: '',
+      iconCls: 'searchx-icon',
+      listeners: {
+        'click': function(){
+          var obj = Ext.getCmp('id_search_box');
+          obj.setValue('');
+          obj.setWidth(100);
+          return false;
+        }
+      }
+    });
+
+    var search_icon = new Ext.Toolbar.Button({
+      text: '',
+      iconCls: 'search-icon',
+      listeners: {
+        'click': function(){
+          var obj = Ext.getCmp('id_search_box');
+          var kw = obj.getRawValue();
+          //add marker at this lat,lng
+          clear_icon_marker();
+          var size = new OpenLayers.Size(32,32);
+          var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+          var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
+          var poi = new OpenLayers.LonLat(ll.lng, ll.lat);
+          marker = new OpenLayers.Marker(poi,icon);
+          markers.addMarker(marker);
+          map.setCenter(poi,17);
+        }
+      }
+    });
+
     var featureInfo = new OpenLayers.Control.WMSGetFeatureInfo({
         queryVisible: true,
         highlightOnly: false,
