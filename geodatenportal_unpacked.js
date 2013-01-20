@@ -207,7 +207,7 @@ function init() {
           var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
           var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
           clear_icon_marker();
-          marker = new OpenLayers.Marker(poi,icon);
+          marker = new OpenLayers.Marker(poi,icon.clone());
           markers.addMarker(marker);
 
         }
@@ -234,7 +234,7 @@ function init() {
             var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
             var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
             var poi = new OpenLayers.LonLat(ll.lng, ll.lat);
-            marker = new OpenLayers.Marker(poi,icon);
+            marker = new OpenLayers.Marker(poi,icon.clone());
             markers.addMarker(marker);
             map.setCenter(poi,17);
           } else {
@@ -280,7 +280,7 @@ function init() {
           var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
           var icon = new OpenLayers.Icon('images/icon_marker_red.png', size, offset);
           var poi = new OpenLayers.LonLat(ll.lng, ll.lat);
-          marker = new OpenLayers.Marker(poi,icon);
+          marker = new OpenLayers.Marker(poi,icon.clone);
           markers.addMarker(marker);
           map.setCenter(poi,17);
         }
