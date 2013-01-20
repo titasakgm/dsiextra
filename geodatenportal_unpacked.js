@@ -471,7 +471,7 @@ function init() {
                         title: 'พื้นที่โดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: evt.measure.toFixed(2) + " " + (evt.units == 'km') ? "ตารางกิโลเมตร" : "ตารางเมตร"
+                        msg: (evt.units == 'km') ? evt.measure.toFixed(2) + " ตารางกิโลเมตร" : evt.measure.toFixed(2) + " ตารางเมตร"
                     })
                 }
             }
@@ -502,7 +502,7 @@ function init() {
                         title: 'ระยะทางรวมโดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: evt.measure.toFixed(2) + " " + (evt.units == 'km') ? "กิโลเมตร" : "เมตร"
+                        msg: (evt.units == 'km') ? evt.measure.toFixed(2) + " กิโลเมตร" : evt.measure.toFixed(2) + " เมตร"
                     })
                 }
             }
