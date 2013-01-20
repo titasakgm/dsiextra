@@ -471,7 +471,7 @@ function init() {
                         title: 'พื้นที่โดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: "Area: " + evt.measure.toFixed(2) + " " + evt.units + "&sup2;"
+                        msg: evt.measure.toFixed(2) + " " + (evt.units == 'km') ? "ตารางกิโลเมตร" : "ตารางเมตร"
                     })
                 }
             }
@@ -502,7 +502,7 @@ function init() {
                         title: 'ระยะทางรวมโดยประมาณ',
                         buttons: Ext.MessageBox.OK,
                         width: 200,
-                        msg: "Length: " + evt.measure.toFixed(2) + " " + evt.units
+                        msg: evt.measure.toFixed(2) + " " + (evt.units == 'km') ? "กิโลเมตร" : "เมตร"
                     })
                 }
             }
