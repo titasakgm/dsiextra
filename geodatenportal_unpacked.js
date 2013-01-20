@@ -253,9 +253,14 @@ function init() {
       listeners: {
         'click': function(){
           var obj = Ext.getCmp('id_search_box');
+          // empty search box
           obj.setValue('');
+          // reset width to original 100
           obj.setWidth(100);
+          // set focus at search box
           obj.focus(false,200);
+          // clear all markers
+          clear_icon_marker();
           return false;
         }
       }
