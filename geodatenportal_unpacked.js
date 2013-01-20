@@ -73,6 +73,7 @@ function init() {
     map = new OpenLayers.Map(null, mapOptions);
 	
     map.addControl(loadingpanel);
+    map.addControl(new OpenLayers.Control.LayerSwitcher());
 
     var check_forest_info = function(layer,ll) {
       lon = ll.lon;
