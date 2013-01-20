@@ -221,6 +221,7 @@ function init() {
       width: 100,
       enableKeyEvents: true,
       emptyText: 'Search..',
+      hasfocus: true,
       listeners: {
         'keypress': function(field, e) {
           if (e.getCharCode() == e.ENTER) {
@@ -254,6 +255,7 @@ function init() {
           var obj = Ext.getCmp('id_search_box');
           obj.setValue('');
           obj.setWidth(100);
+          obj.focus(false,200);
           return false;
         }
       }
