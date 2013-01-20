@@ -222,9 +222,9 @@ function init() {
       enableKeyEvents: true,
       emptyText: 'Search..',
       listeners: {
-        'keypress': function(combo, e) {
+        'keypress': function(field, e) {
           if (e.getCharCode() == e.ENTER) {
-            var kw = combo.getRawValue();
+            var kw = field.getRawValue();
             ll = geocoder(kw);
             //add marker at this lat,lng
             clear_icon_marker();
