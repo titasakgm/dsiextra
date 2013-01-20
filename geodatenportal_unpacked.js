@@ -227,7 +227,7 @@ function init() {
         'keypress': function(field, e) {
           if (e.getCharCode() == e.ENTER) {
             var kw = field.getRawValue();
-            ll = geocoder(kw);
+            var ll = geocoder(kw);
             //add marker at this lat,lng
             clear_icon_marker();
             var size = new OpenLayers.Size(32,32);
@@ -274,6 +274,7 @@ function init() {
         'click': function(){
           var obj = Ext.getCmp('id_search_box');
           var kw = obj.getRawValue();
+          var ll = geocoder(kw);
           //add marker at this lat,lng
           clear_icon_marker();
           var size = new OpenLayers.Size(32,32);
