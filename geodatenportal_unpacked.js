@@ -30,7 +30,7 @@ function init() {
 
     var marker;
     var markers = new OpenLayers.Layer.Markers( "Markers", {
-      displayInLayerSwitcher: false,
+      displayInLayerSwitcher: true,
       hideIntree: true
     });
 
