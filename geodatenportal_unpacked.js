@@ -1,6 +1,7 @@
+Ext.QuickTips.init();
+
 function init() {
     document.getElementById('loadingDiv').style.visibility = 'hidden';
-    Ext.QuickTips.init();
     var epsg4326 = new OpenLayers.Projection("EPSG:4326");
     var epsg900913 = new OpenLayers.Projection("EPSG:900913");
     var loadingpanel = new OpenLayers.Control.LoadingPanel();
@@ -307,7 +308,7 @@ function init() {
     };
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Zoom to max",
+        tooltip: "ขยายใหญ่สุด",
         icon: 'images/arrow_out.png',
         control: new OpenLayers.Control.ZoomToMaxExtent(),
         map: map
@@ -321,7 +322,7 @@ function init() {
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "Pan", 
+        tooltip: "เลื่อนแผนที่", 
         icon: 'images/hand.png',
         control: new OpenLayers.Control.DragPan({
             isDefault: true,
@@ -338,7 +339,7 @@ function init() {
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "Zoom In",
+        tooltip: "ขยายภาพแผนที่",
         icon: 'images/zoom_in.png',
         control: new OpenLayers.Control.ZoomIn(),
         map: map
@@ -352,7 +353,7 @@ function init() {
         text: "",
         enableToggle: true,
         toggleGroup: toggleGroup,
-        tooltip: "Zoom Out",
+        tooltip: "ลดขนาดภาพแผนที่",
         icon: 'images/zoom_out.png',
         control: new OpenLayers.Control.ZoomOut(),
         map: map
@@ -364,7 +365,7 @@ function init() {
 
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Zoom Box",
+        tooltip: "ขยายภาพแผนที่แบบใช้กรอบสี่เหลี่ยม",
         enableToggle: true,
         icon: 'images/magnifier_zoom_box.png',
         toggleGroup: toggleGroup,
@@ -386,7 +387,7 @@ function init() {
         icon: 'images/arrow_left.png',
         control: ctrl.previous,
         disabled: true,
-        tooltip: "Go Backward"
+        tooltip: "ย้อนดูภาพที่แล้ว"
     });
     actions["previous"] = action;
     toolbarItems.push(action);
@@ -396,7 +397,7 @@ function init() {
         control: ctrl.next,
         icon: 'images/arrow_right.png',
         disabled: true,
-        tooltip: "Go Forward"
+        tooltip: "ดูภาพก่อนหน้า"
     });
     actions["next"] = action;
     toolbarItems.push(action);
@@ -405,7 +406,7 @@ function init() {
 
     action = new GeoExt.Action({
         text: "",
-        tooltip: "Select Features",
+        tooltip: "เลือกจากจุดที่สนใจ",
         enableToggle: true,
         icon: './images/information.png',
         toggleGroup: toggleGroup,
@@ -581,8 +582,9 @@ function init() {
             html: "<table class='table_allgemein'>" + "<tr><td><a href='http://dsi-map.go.th'><img height='100px' src='images/dsi-logo.png' alt='DSI' /></a></td></tr>" + "<tr><td>การพัฒนา DSI Map Extra</td></tr>" + "<tr><td><p>พัฒนา Smart Search ที่สามารถใส่ input ได้หลากหลาย เริ่มต้นด้วย แสดงรายการ Quick Zoom สำหรับสถานที่ตัวอย่าง สามารถกรอกข้อมูลพิกัด ในรูปแบบต่างๆ เช่น Lat/Long UTM Zone 47 48, UTM Indian 1975 เฉพาะกรณีนี้ ผู้ใช้งานต้องระบุคำว่า Indian หร่อ 1975 ต่อท้ายโดยเว้นวรรคเพื่อให้ระบบได้ทราบว่าเป็น projection ชนิดนี้ (อย่างน้อย ระบุอักษร I หรือ i)<p>&nbsp;</p>นอกจากนี้ ยังได้เพิ่มความสามารถ geocoder ทำให้ระบุชื่อสถานที่เป็นภาษาไทย หรือ ภาษาอังกฤษได้ เมื่อกดปุ่ม [Enter] ระบบจะทำการค้นหาตำแหน่งพิกัดให้ และหากพบคำค้น จะทำการ Zoom ไปยังสถานที่นั้นๆทันที</p><p>&nbsp;</p><p>ขอขอบคุณต้นแบบสำหรับการพัฒนา <a href='http://maps.zgb.de/www/zgb_energie/geodatenportal.html'>ZGB Website</a></p></td></tr>" + "</table>"
         },
         {
-            title: 'ข้อมูลด้านเทคนิค',
-            html: "<table class='table_allgemein'>" + "<tr><td>ข้อมูลด้านเทคนิค</td></tr>" + "<tr><td>WMS/WFS Server:</td><td><img height='50px' src='images/GeoServer_100.png' alt='Geoserver' /></td></tr>" + "<tr><td>Tile Caching: </td><td><img height='50px' src='images/geowebcache1.png' alt='Geoserver' /></td></tr>" + "<tr><td>GUI Design</td><td><img height='50px' src='images/logoEXT.png' alt='Geoserver' /></td></tr>" + "</table>"
+            title: 'เทคโนโลยีที่ใช้',
+            html: "<table class='table_allgemein'>" + "<tr><td>รายละเอียด</td></tr>" + 
+"<tr><td>WMS/WFS Server:</td><td><img height='50px' src='images/GeoServer_100.png' alt='Geoserver' /></td></tr>" + "<tr><td>Tile Caching: </td><td><img height='50px' src='images/geowebcache1.png' alt='Geoserver' /></td></tr>" + "<tr><td>GUI Design</td><td><img height='50px' src='images/logoEXT.png' alt='Geoserver' /></td></tr>" + "</table>"
         }]
     });
     
@@ -773,7 +775,7 @@ var visualConfigs = {
         }],
         tbar: [zoomthai,'-',
 	    new Ext.Button({
-              text: 'Info',
+              text: '',
               icon: 'images/about.png',
               tooltip: 'ข้อมูลด้านเทคนิค',
               handler: function () {
